@@ -27,9 +27,11 @@ Dump of assembler code for function main:
 End of assembler dump.
 ```
 ### run
+```
 HW
 I am just stalling
 I am just stalling
+```
 
 ## => finstrument_sh_lib_main
 ### disassemble of main
@@ -59,9 +61,11 @@ Dump of assembler code for function main:
 End of assembler dump.
 ```
 ### run
+```
 HW
 I am just stalling
 I am just addiig - 3
+```
 
 ## => fsanitize_address_main
 ### disassemble of main
@@ -166,14 +170,15 @@ Dump of assembler code for function main:
 End of assembler dump.
 ```
 ### run
+```
 =================================================================
-==10631==ERROR: AddressSanitizer: stack-buffer-overflow on address 0x7ffd5b34ee88 at pc 0x0000004c24cf bp 0x7ffd5b34ee30 sp 0x7ffd5b34ee28
-WRITE of size 4 at 0x7ffd5b34ee88 thread T0
+==10973==ERROR: AddressSanitizer: stack-buffer-overflow on address 0x7fffb2901508 at pc 0x0000004c24cf bp 0x7fffb29014b0 sp 0x7fffb29014a8
+WRITE of size 4 at 0x7fffb2901508 thread T0
     #0 0x4c24ce in main /home/vagrant/compiler_options/fsanitize_address_main.c:5:11
-    #1 0x7f8b84e8e82f in __libc_start_main /build/glibc-LK5gWL/glibc-2.23/csu/../csu/libc-start.c:291
+    #1 0x7f71df20f82f in __libc_start_main /build/glibc-LK5gWL/glibc-2.23/csu/../csu/libc-start.c:291
     #2 0x41ada8 in _start (/home/vagrant/compiler_options/fsanitize_address_main+0x41ada8)
 
-Address 0x7ffd5b34ee88 is located in stack of thread T0 at offset 72 in frame
+Address 0x7fffb2901508 is located in stack of thread T0 at offset 72 in frame
     #0 0x4c238f in main /home/vagrant/compiler_options/fsanitize_address_main.c:3
 
   This frame has 1 object(s):
@@ -182,17 +187,17 @@ HINT: this may be a false positive if your program uses some custom stack unwind
       (longjmp and C++ exceptions *are* supported)
 SUMMARY: AddressSanitizer: stack-buffer-overflow /home/vagrant/compiler_options/fsanitize_address_main.c:5:11 in main
 Shadow bytes around the buggy address:
-  0x10002b661d80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x10002b661d90: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x10002b661da0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x10002b661db0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x10002b661dc0: 00 00 00 00 00 00 00 00 f1 f1 f1 f1 00 00 00 00
-=>0x10002b661dd0: 00[f3]f3 f3 f3 f3 f3 f3 00 00 00 00 00 00 00 00
-  0x10002b661de0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x10002b661df0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x10002b661e00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x10002b661e10: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x10002b661e20: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x100076518250: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x100076518260: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x100076518270: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x100076518280: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x100076518290: 00 00 00 00 00 00 00 00 f1 f1 f1 f1 00 00 00 00
+=>0x1000765182a0: 00[f3]f3 f3 f3 f3 f3 f3 00 00 00 00 00 00 00 00
+  0x1000765182b0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x1000765182c0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x1000765182d0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x1000765182e0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x1000765182f0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 Shadow byte legend (one shadow byte represents 8 application bytes):
   Addressable:           00
   Partially addressable: 01 02 03 04 05 06 07 
@@ -213,7 +218,8 @@ Shadow byte legend (one shadow byte represents 8 application bytes):
   Left alloca redzone:     ca
   Right alloca redzone:    cb
   Shadow gap:              cc
-==10631==ABORTING
+==10973==ABORTING
+```
 
 ## => fsanitize_memory_main
 ### disassemble of main
@@ -313,13 +319,15 @@ Dump of assembler code for function main:
 End of assembler dump.
 ```
 ### run
-==10635==WARNING: MemorySanitizer: use-of-uninitialized-value
+```
+==10977==WARNING: MemorySanitizer: use-of-uninitialized-value
     #0 0x4947f4 in main /home/vagrant/compiler_options/fsanitize_memory_main.c:7:9
-    #1 0x7ff1c01a982f in __libc_start_main /build/glibc-LK5gWL/glibc-2.23/csu/../csu/libc-start.c:291
+    #1 0x7f68e013682f in __libc_start_main /build/glibc-LK5gWL/glibc-2.23/csu/../csu/libc-start.c:291
     #2 0x41b698 in _start (/home/vagrant/compiler_options/fsanitize_memory_main+0x41b698)
 
 SUMMARY: MemorySanitizer: use-of-uninitialized-value /home/vagrant/compiler_options/fsanitize_memory_main.c:7:9 in main
 Exiting
+```
 
 ## => fsanitize_leak_main
 ### disassemble of main
@@ -340,16 +348,18 @@ Dump of assembler code for function main:
 End of assembler dump.
 ```
 ### run
+```
 
 =================================================================
-==10639==ERROR: LeakSanitizer: detected memory leaks
+==10981==ERROR: LeakSanitizer: detected memory leaks
 
 Direct leak of 400 byte(s) in 1 object(s) allocated from:
     #0 0x4079f5 in malloc (/home/vagrant/compiler_options/fsanitize_leak_main+0x4079f5)
     #1 0x427258 in main /home/vagrant/compiler_options/fsanitize_leak_main.c:5:14
-    #2 0x7f45fd7bb82f in __libc_start_main /build/glibc-LK5gWL/glibc-2.23/csu/../csu/libc-start.c:291
+    #2 0x7f858208082f in __libc_start_main /build/glibc-LK5gWL/glibc-2.23/csu/../csu/libc-start.c:291
 
 SUMMARY: LeakSanitizer: 400 byte(s) leaked in 1 allocation(s).
+```
 
 ## => fsanitize_ub_main
 ### disassemble of main
@@ -391,7 +401,9 @@ Dump of assembler code for function main:
 End of assembler dump.
 ```
 ### run
+```
 b=0
+```
 
 ## => fsanitize_thread_main
 ### disassemble of main
@@ -419,40 +431,68 @@ Dump of assembler code for function main:
    0x00000000004b3145 <+85>:	call   0x484640 <__tsan_write4>
    0x00000000004b314a <+90>:	mov    edx,DWORD PTR [rbp-0x1c]
    0x00000000004b314d <+93>:	mov    DWORD PTR ds:0x11132f8,edx
-   0x00000000004b3154 <+100>:	movabs rdi,0x4c29c9
+   0x00000000004b3154 <+100>:	movabs rdi,0x4c29f9
    0x00000000004b315e <+110>:	mov    rsi,QWORD PTR [rbp-0x18]
    0x00000000004b3162 <+114>:	mov    al,0x0
    0x00000000004b3164 <+116>:	call   0x4359e0 <printf>
    0x00000000004b3169 <+121>:	mov    edi,0x1
    0x00000000004b316e <+126>:	mov    DWORD PTR [rbp-0x20],eax
    0x00000000004b3171 <+129>:	call   0x421a10 <sleep>
-   0x00000000004b3176 <+134>:	mov    DWORD PTR [rbp-0x24],eax
-   0x00000000004b3179 <+137>:	jmp    0x4b3122 <main+50>
+   0x00000000004b3176 <+134>:	movabs rcx,0x11132f8
+   0x00000000004b3180 <+144>:	mov    rdi,rcx
+   0x00000000004b3183 <+147>:	mov    DWORD PTR [rbp-0x24],eax
+   0x00000000004b3186 <+150>:	call   0x482a90 <__tsan_read4>
+   0x00000000004b318b <+155>:	cmp    DWORD PTR ds:0x11132f8,0x5
+   0x00000000004b3193 <+163>:	jle    0x4b31a6 <main+182>
+   0x00000000004b3199 <+169>:	call   0x4898e0 <__tsan_func_exit>
+   0x00000000004b319e <+174>:	xor    eax,eax
+   0x00000000004b31a0 <+176>:	add    rsp,0x30
+   0x00000000004b31a4 <+180>:	pop    rbp
+   0x00000000004b31a5 <+181>:	ret    
+   0x00000000004b31a6 <+182>:	jmp    0x4b3122 <main+50>
 End of assembler dump.
 ```
 ### run
+```
 ==================
-WARNING: ThreadSanitizer: data race (pid=10647)
-  Read of size 4 at 0x0000011132f8 by thread T1:
-    #0 thread_fn /home/vagrant/compiler_options/fsanitize_thread_main.c:13:13 (fsanitize_thread_main+0x4b30c9)
+WARNING: ThreadSanitizer: data race (pid=10989)
+  Read of size 4 at 0x0000011132f8 by main thread:
+    #0 main /home/vagrant/compiler_options/fsanitize_thread_main.c:24:13 (fsanitize_thread_main+0x4b318a)
 
-  Previous write of size 4 at 0x0000011132f8 by main thread:
-    #0 main /home/vagrant/compiler_options/fsanitize_thread_main.c:22:57 (fsanitize_thread_main+0x4b3149)
+  Previous write of size 4 at 0x0000011132f8 by thread T1:
+    #0 thread_fn /home/vagrant/compiler_options/fsanitize_thread_main.c:11:57 (fsanitize_thread_main+0x4b3088)
 
   As if synchronized via sleep:
     #0 sleep <null> (fsanitize_thread_main+0x421a46)
-    #1 thread_fn /home/vagrant/compiler_options/fsanitize_thread_main.c:12:9 (fsanitize_thread_main+0x4b30b4)
+    #1 main /home/vagrant/compiler_options/fsanitize_thread_main.c:23:9 (fsanitize_thread_main+0x4b3175)
 
   Location is global 'global' of size 4 at 0x0000011132f8 (fsanitize_thread_main+0x0000011132f8)
 
-  Thread T1 (tid=10649, running) created by main thread at:
+  Thread T1 (tid=10991, running) created by main thread at:
     #0 pthread_create <null> (fsanitize_thread_main+0x4245fb)
     #1 main /home/vagrant/compiler_options/fsanitize_thread_main.c:19:5 (fsanitize_thread_main+0x4b3121)
 
-SUMMARY: ThreadSanitizer: data race /home/vagrant/compiler_options/fsanitize_thread_main.c:13:13 in thread_fn
+SUMMARY: ThreadSanitizer: data race /home/vagrant/compiler_options/fsanitize_thread_main.c:24:13 in main
 ==================
+==================
+WARNING: ThreadSanitizer: thread leak (pid=10989)
+  Thread T1 (tid=10991, finished) created by main thread at:
+    #0 pthread_create <null> (fsanitize_thread_main+0x4245fb)
+    #1 main /home/vagrant/compiler_options/fsanitize_thread_main.c:19:5 (fsanitize_thread_main+0x4b3121)
 
+SUMMARY: ThreadSanitizer: thread leak (/home/vagrant/compiler_options/fsanitize_thread_main+0x4245fb) in pthread_create
+==================
+ThreadSanitizer: reported 2 warnings
+[tid=139698476410624] global=1
+[tid=139698533618368] global=1
+[tid=139698476410624] global=2
+[tid=139698533618368] global=3
+[tid=139698476410624] global=4
+[tid=139698533618368] global=5
+[tid=139698476410624] global=6
+```
 
-generated with:
-```bash
-rm README.md ; (echo "# Compiler Options"; for b in $BINARIES; do echo "## => "$b; echo "### disassemble of main"; echo "\`\`\`nasm" ; gdb -batch  -ex 'file '$b  -ex 'disassemble main'; echo "\`\`\`"; echo "### run"; ./$b; echo ""; done 2>&1 ) |  tee  README.md```
+--
+**Generated with:**
+```
+rm README.md ; (echo "# Compiler Options"; for b in $BINARIES; do echo "## => "$b; echo "### disassemble of main"; echo "\`\`\`nasm" ; gdb -batch  -ex 'file '$b  -ex 'disassemble main'; echo "\`\`\`"; echo "### run"; echo "\`\`\`"; ./$b; echo "\`\`\`"; echo ""; done 2>&1 ) |  tee  README.md```
