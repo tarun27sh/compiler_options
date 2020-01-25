@@ -10,7 +10,7 @@ void thread_fn()
         //printf("[tid=%u] global=%d\n", gettid(), ++global);
         printf("[tid=%lu] global=%d\n", pthread_self(), ++global);
         sleep(1);
-        if (global > 1000) return;
+        if (global > 5) return;
     }
 }
 int main()
@@ -21,6 +21,7 @@ int main()
         //printf("[tid=%u] global=%d\n", gettid(),++global);
         printf("[tid=%lu] global=%d\n", pthread_self(), ++global);
         sleep(1);
+        if (global > 5) return 0;
     }
     pthread_join(thread, NULL);
 }
